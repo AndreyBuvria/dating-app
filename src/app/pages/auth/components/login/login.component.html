@@ -1,1 +1,45 @@
-<p>login works!</p>
+<div class="login auth-card">
+  <div class="auth-card-content">
+    <h3 class="login-text">Log in</h3>
+
+    <form>
+      <div class="form">
+        <div class="form-group">
+          <mat-form-field appearance="fill" class="form-control">
+            <mat-label>Fill form field</mat-label>
+            <input matInput placeholder="Placeholder">
+          </mat-form-field>
+        </div>
+
+        <div class="form-group">
+          <mat-form-field class="form-control">
+            <mat-label>Enter your password</mat-label>
+            <input matInput [type]="isPasswordHidden ? 'password' : 'text'">
+            <button mat-icon-button matSuffix (click)="isPasswordHidden = !isPasswordHidden"
+              [attr.aria-label]="'Hide password'" [attr.aria-pressed]="isPasswordHidden">
+              <mat-icon>{{isPasswordHidden ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </button>
+          </mat-form-field>
+        </div>
+
+        <div class="form-hints">
+          <p class="text-small">
+            <a href="#">Forgot password?</a>
+          </p>
+
+          <p class="text-small">
+            <a href="#">Do not have an account yet?</a>
+          </p>
+        </div>
+
+        <div class="form-submit">
+          <button mat-raised-button type="submit" color="primary">Log in</button>
+        </div>
+      </div>
+    </form>
+  </div>
+
+  <div class="auth-card-img">
+    <img src="https://colorlib.com/etc/regform/colorlib-regform-7/images/signup-image.jpg" alt="">
+  </div>
+</div>
