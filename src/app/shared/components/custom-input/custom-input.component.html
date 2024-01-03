@@ -1,0 +1,21 @@
+<mat-form-field class="form-control">
+  <mat-label>Enter your password</mat-label>
+  @switch (type) {
+  @case (INPUT_TYPES.Text) {
+  <input matInput [type]="isPasswordHidden ? 'password' : 'text'">
+
+  <button mat-icon-button matSuffix (click)="isPasswordHidden = !isPasswordHidden" [attr.aria-label]="'Hide password'"
+    [attr.aria-pressed]="isPasswordHidden">
+    <mat-icon>{{ isPasswordHidden ? 'visibility_off' : 'visibility' }}</mat-icon>
+  </button>
+  }
+  @case (INPUT_TYPES.Password) {
+  <input matInput [type]="isPasswordHidden ? 'password' : 'text'">
+
+  <button mat-icon-button matSuffix (click)="isPasswordHidden = !isPasswordHidden" [attr.aria-label]="'Hide password'"
+    [attr.aria-pressed]="isPasswordHidden">
+    <mat-icon>{{ isPasswordHidden ? 'visibility_off' : 'visibility' }}</mat-icon>
+  </button>
+  }
+  }
+</mat-form-field>
