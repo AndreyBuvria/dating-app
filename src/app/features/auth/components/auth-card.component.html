@@ -1,0 +1,11 @@
+<div class="login auth-card">
+  <div class="auth-card-content">
+    <h3 class="login-text">{{ title }}</h3>
+
+    <ng-container *ngTemplateOutlet="authCardStart.templateRef"></ng-container>
+  </div>
+
+  <div class="auth-card-img">
+    <ng-container *ngTemplateOutlet="authCardEnd.templateRef"></ng-container>
+  </div>
+</div>

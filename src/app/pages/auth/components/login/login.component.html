@@ -1,7 +1,5 @@
-<div class="login auth-card">
-  <div class="auth-card-content">
-    <h3 class="login-text">Log in</h3>
-
+<dating-app-auth-card [title]="'Log In'">
+  <ng-template authCardStart>
     <form>
       <div class="form">
         <div class="form-group">
@@ -37,9 +35,9 @@
         </div>
       </div>
     </form>
-  </div>
+  </ng-template>
 
-  <div class="auth-card-img">
+  <ng-template authCardEnd>
     <img src="https://colorlib.com/etc/regform/colorlib-regform-7/images/signup-image.jpg" alt="">
-  </div>
-</div>
+  </ng-template>
+</dating-app-auth-card>
