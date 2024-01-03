@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { SharedModule } from '@shared/shared.module';
-import { AuthCardComponent } from './components/auth-card.component';
+import { AuthCardComponent } from './components';
 import { AuthCardEndDirective, AuthCardStartDirective } from './directives';
 
 @NgModule({
