@@ -46,7 +46,7 @@
         </div>
 
         <div class="form-submit">
-          <button mat-raised-button type="submit" color="primary">Log in</button>
+          <button [disabled]="form.invalid" mat-raised-button type="submit" color="primary">Log in</button>
         </div>
       </div>
     </form>
