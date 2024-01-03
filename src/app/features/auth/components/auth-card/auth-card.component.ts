@@ -4,7 +4,7 @@ import {
   ContentChild,
   Input
 } from '@angular/core';
-import { AuthCardEndDirective, AuthCardStartDirective } from '../directives';
+import { AuthCardEndDirective, AuthCardStartDirective } from '../../directives';
 
 @Component({
   selector: 'dating-app-auth-card',
