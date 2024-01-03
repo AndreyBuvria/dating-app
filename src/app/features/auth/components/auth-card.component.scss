@@ -1,0 +1,50 @@
+@import "../../../../assets/styles/mixins";
+
+.login {
+  display: flex;
+  align-items: center;
+  &-text {
+    font-size: 36px;
+    text-align: center;
+
+    margin-bottom: 40px;
+  }
+}
+
+.auth {
+  padding-top: 80px;
+  &-container {
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+  &-card {
+    align-items: center;
+    justify-content: space-between;
+    padding: 80px 60px;
+    border-radius: 10px;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+
+    @include media-query('md') {
+      align-items: normal;
+    }
+
+    &-content {
+      width: 100%;
+      margin: 0 40px;
+    }
+
+    &-img {
+      align-self: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      
+      @include media-query('md') {
+        display: block;
+        width: auto;
+      }
+    }
+  }
+}

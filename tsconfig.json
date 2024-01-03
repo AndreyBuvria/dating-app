@@ -15,9 +15,9 @@
     "baseUrl": ".",
     "paths": {
       "@core/*": ["src/app/core/*"],
+      "@features/*": ["src/app/features/*"],
       "@pages/*": ["src/app/pages/*"],
-      "@shared/*": ["src/app/shared/*"],
-      "@features/*": ["src/app/features/*"]
+      "@shared/*": ["src/app/shared/*"]
     },
     "useDefineForClassFields": false,
     "esModuleInterop": true,
