@@ -1,21 +1,20 @@
-<mat-form-field class="form-control">
-  <mat-label>Enter your password</mat-label>
+<mat-form-field>
+  @if (label) {
+  <mat-label>{{ label }}</mat-label>
+  }
+  <input matInput [type]="computedType" (input)="onInput($event)">
   @switch (type) {
-  @case (INPUT_TYPES.Text) {
-  <input matInput [type]="isPasswordHidden ? 'password' : 'text'">
-
+  @case ('text') {
+  }
+  @case ('password') {
   <button mat-icon-button matSuffix (click)="isPasswordHidden = !isPasswordHidden" [attr.aria-label]="'Hide password'"
     [attr.aria-pressed]="isPasswordHidden">
     <mat-icon>{{ isPasswordHidden ? 'visibility_off' : 'visibility' }}</mat-icon>
   </button>
   }
-  @case (INPUT_TYPES.Password) {
-  <input matInput [type]="isPasswordHidden ? 'password' : 'text'">
-
-  <button mat-icon-button matSuffix (click)="isPasswordHidden = !isPasswordHidden" [attr.aria-label]="'Hide password'"
-    [attr.aria-pressed]="isPasswordHidden">
-    <mat-icon>{{ isPasswordHidden ? 'visibility_off' : 'visibility' }}</mat-icon>
-  </button>
   }
+
+  @for (error of errorList; track $index) {
+  <mat-error>{{ error }}</mat-error>
   }
 </mat-form-field>

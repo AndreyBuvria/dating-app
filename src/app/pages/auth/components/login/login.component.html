@@ -3,15 +3,17 @@
     <form [formGroup]="form" (ngSubmit)="onSubmit()">
       <div class="form">
         <div class="form-group">
-          <mat-form-field appearance="fill" class="form-control">
+          <dating-app-custom-input [type]="'text'" [label]="'Enter your password'" formControlName="email" />
+
+          <!--<mat-form-field appearance="fill" class="form-control">
             <mat-label>Fill form field</mat-label>
             <input formControlName="email" matInput placeholder="Placeholder">
             @if (form.get('email')?.invalid && form.get('email')?.touched) {
-              <mat-error>
-                Please enter a valid email address
-              </mat-error>
+            <mat-error>
+              Please enter a valid email address
+            </mat-error>
             }
-          </mat-form-field>
+          </mat-form-field>-->
         </div>
 
         <div class="form-group">
@@ -23,14 +25,14 @@
               <mat-icon>{{isPasswordHidden ? 'visibility_off' : 'visibility'}}</mat-icon>
             </button>
             @if (form.get('password')?.errors?.['required']) {
-              <mat-error>
-                Password field can't be empty
-              </mat-error>
+            <mat-error>
+              Password field can't be empty
+            </mat-error>
             }
             @else if (form.get('password')?.invalid && form.get('password')?.touched) {
-              <mat-error>
-                Password length must be more then {{form?.get('password')?.errors?.['minlength']?.requiredLength}}
-              </mat-error>
+            <mat-error>
+              Password length must be more then {{form?.get('password')?.errors?.['minlength']?.requiredLength}}
+            </mat-error>
             }
           </mat-form-field>
         </div>
