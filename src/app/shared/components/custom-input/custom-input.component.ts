@@ -1,18 +1,11 @@
-import {
-  ChangeDetectionStrategy,
-  ChangeDetectorRef,
-  Component,
-  Host,
-  Input,
-  Optional,
-  SkipSelf,
-  forwardRef
-} from '@angular/core';
+import { ChangeDetectionStrategy, Component, Host, Input, Optional, SkipSelf, forwardRef } from '@angular/core';
 import { ControlContainer, FormControl, NG_VALUE_ACCESSOR } from '@angular/forms';
+import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
 import { ControlValueAccessorClass } from '@shared/classes';
-import { VALIDATION_ERRORS } from '@shared/constants';
+import { Subject, debounceTime } from 'rxjs';
 import { CustomInputTypes } from './types/custom-input.types';
 
+@UntilDestroy()
 @Component({
   selector: 'dating-app-custom-input',
   templateUrl: './custom-input.component.html',
@@ -30,36 +23,17 @@ export class CustomInputComponent extends ControlValueAccessorClass {
   @Input({ required: true })
   public type!: CustomInputTypes;
   @Input()
-  public validationProperty: keyof typeof VALIDATION_ERRORS = 'default';
-  @Input()
   public formControlName!: string;
   @Input()
   public label?: string;
+  @Input()
+  public debounce: number = 0;
 
   protected isPasswordHidden: boolean = false;
+  protected initialValue: string = '';
+  protected control!: FormControl;
 
-  private _control!: FormControl;
-
-  protected get errorList(): string[] {
-    const errorTypes = this._control?.errors;
-
-    if (!errorTypes) {
-      return [];
-    }
-
-    const errors: string[] = [];
-    const validationErrors = VALIDATION_ERRORS[this.validationProperty]!;
-
-    for (const key of Object.keys(errorTypes)) {
-      const error = validationErrors[key];
-
-      if (error) {
-        errors.push(error);
-      }
-    }
-
-    return errors;
-  }
+  private _valueChanges$: Subject<any> = new Subject<any>();
 
   protected get computedType(): CustomInputTypes {
     if (this.type === 'password') {
@@ -73,22 +47,25 @@ export class CustomInputComponent extends ControlValueAccessorClass {
     @Optional()
     @Host()
     @SkipSelf()
-    private readonly controlContainer: ControlContainer,
-    private readonly changeDetectorRef: ChangeDetectorRef
+    private readonly controlContainer: ControlContainer
   ) {
     super();
   }
 
-  public onInput(ev: any): void {
-    this.onChange(ev.target.value);
+  public override writeValue(value: any): void {
+    this.initialValue = value;
+  }
 
-    // this.changeDetectorRef.markForCheck();
+  protected onInput(ev: any): void {
+    this._valueChanges$.next(ev.target.value);
   }
 
   ngOnInit(): void {
     if (this.controlContainer) {
       if (this.formControlName) {
-        this._control = this.controlContainer.control!.get(this.formControlName) as FormControl;
+        this.control = this.controlContainer.control!.get(this.formControlName) as FormControl;
+
+        this.subscribeToChanges();
       } else {
         console.warn('Missing FormControlName directive from host element of the component');
       }
@@ -97,5 +74,12 @@ export class CustomInputComponent extends ControlValueAccessorClass {
     }
   }
 
-  private subscribeToInputChanges(): void {}
+  private subscribeToChanges(): void {
+    this._valueChanges$
+      .asObservable()
+      .pipe(untilDestroyed(this), debounceTime(this.debounce))
+      .subscribe((value: any) => {
+        this.onChange(value);
+      });
+  }
 }

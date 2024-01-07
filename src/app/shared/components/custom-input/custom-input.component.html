@@ -1,20 +1,44 @@
-<mat-form-field>
+<mat-form-field appearance="fill">
   @if (label) {
-  <mat-label>{{ label }}</mat-label>
+    <mat-label>{{ label }}</mat-label>
   }
-  <input matInput [type]="computedType" (input)="onInput($event)">
-  @switch (type) {
-  @case ('text') {
-  }
-  @case ('password') {
-  <button mat-icon-button matSuffix (click)="isPasswordHidden = !isPasswordHidden" [attr.aria-label]="'Hide password'"
-    [attr.aria-pressed]="isPasswordHidden">
-    <mat-icon>{{ isPasswordHidden ? 'visibility_off' : 'visibility' }}</mat-icon>
-  </button>
-  }
+  <input
+    matInput
+    [formControl]="control"
+    [type]="computedType"
+    (input)="onInput($event)"
+    [value]="initialValue"
+    (blur)="onTouch()"
+    #input />
+
+  @if (type === 'password') {
+    <button
+      *ngIf="type === 'password'"
+      matSuffix
+      mat-icon-button
+      (click)="isPasswordHidden = !isPasswordHidden"
+      [attr.aria-label]="'Hide password'"
+      [attr.aria-pressed]="isPasswordHidden">
+      <mat-icon>{{ isPasswordHidden ? 'visibility_off' : 'visibility' }}</mat-icon>
+    </button>
   }
 
-  @for (error of errorList; track $index) {
-  <mat-error>{{ error }}</mat-error>
+  <!-- Error handling -->
+  @if (type === 'password') {
+    <mat-error>
+      @if (control.hasError('required')) {
+        Password field can't be empty
+      } @else if (control.hasError('minlength')) {
+        Password length must be more than {{ control.errors?.['minlength']?.requiredLength }}
+      }
+    </mat-error>
+  }
+
+  @if (type === 'text') {
+    <mat-error></mat-error>
+  }
+
+  @if (type === 'email') {
+    <mat-error>Please enter a valid email address</mat-error>
   }
 </mat-form-field>
