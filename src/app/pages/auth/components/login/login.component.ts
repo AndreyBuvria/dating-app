@@ -11,13 +11,14 @@ export class LoginComponent implements OnInit {
   protected isPasswordHidden: boolean = true;
   form!: FormGroup;
 
+  public get email() {
+    return this.form.get('email') as FormControl;
+  }
+
   ngOnInit(): void {
     this.form = new FormGroup({
       email: new FormControl('', [Validators.email, Validators.required]),
-      password: new FormControl('', [
-        Validators.minLength(8),
-        Validators.required
-      ])
+      password: new FormControl('', [Validators.minLength(8), Validators.required])
     });
   }
 

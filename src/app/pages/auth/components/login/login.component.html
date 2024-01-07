@@ -1,38 +1,21 @@
 <dating-app-auth-card [title]="'Log In'">
   <ng-template authCardStart>
-    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <form
+      [formGroup]="form"
+      (ngSubmit)="onSubmit()">
       <div class="form">
         <div class="form-group">
-          <mat-form-field appearance="fill" class="form-control">
-            <mat-label>Fill form field</mat-label>
-            <input formControlName="email" matInput placeholder="Placeholder">
-            @if (form.get('email')?.invalid && form.get('email')?.touched) {
-              <mat-error>
-                Please enter a valid email address
-              </mat-error>
-            }
-          </mat-form-field>
+          <dating-app-custom-input
+            [type]="'email'"
+            [label]="'Fill form field'"
+            formControlName="email" />
         </div>
 
         <div class="form-group">
-          <mat-form-field class="form-control">
-            <mat-label>Enter your password</mat-label>
-            <input formControlName="password" matInput [type]="isPasswordHidden ? 'password' : 'text'">
-            <button type="button" mat-icon-button matSuffix (click)="isPasswordHidden = !isPasswordHidden"
-              [attr.aria-label]="'Hide password'" [attr.aria-pressed]="isPasswordHidden">
-              <mat-icon>{{isPasswordHidden ? 'visibility_off' : 'visibility'}}</mat-icon>
-            </button>
-            @if (form.get('password')?.errors?.['required']) {
-              <mat-error>
-                Password field can't be empty
-              </mat-error>
-            }
-            @else if (form.get('password')?.invalid && form.get('password')?.touched) {
-              <mat-error>
-                Password length must be more then {{form?.get('password')?.errors?.['minlength']?.requiredLength}}
-              </mat-error>
-            }
-          </mat-form-field>
+          <dating-app-custom-input
+            [type]="'password'"
+            [label]="'Enter your password'"
+            formControlName="password" />
         </div>
 
         <div class="form-hints">
@@ -46,13 +29,21 @@
         </div>
 
         <div class="form-submit">
-          <button [disabled]="form.invalid" mat-raised-button type="submit" color="primary">Log in</button>
+          <button
+            [disabled]="form.invalid"
+            mat-raised-button
+            type="submit"
+            color="primary">
+            Log in
+          </button>
         </div>
       </div>
     </form>
   </ng-template>
 
   <ng-template authCardEnd>
-    <img src="https://colorlib.com/etc/regform/colorlib-regform-7/images/signup-image.jpg" alt="">
+    <img
+      src="https://colorlib.com/etc/regform/colorlib-regform-7/images/signup-image.jpg"
+      alt="" />
   </ng-template>
 </dating-app-auth-card>
