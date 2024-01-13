@@ -10,7 +10,7 @@ export const mainRoutes: Route[] = [
       { path: '', pathMatch: 'full', redirectTo: AppRoutes.Auth },
       {
         path: AppRoutes.Auth,
-        loadChildren: () => import('../../pages/auth/auth.routes').then((m) => m.AuthModule)
+        loadChildren: () => import('../../pages/auth/auth.routes').then((m) => m.routes)
       }
     ]
   }
