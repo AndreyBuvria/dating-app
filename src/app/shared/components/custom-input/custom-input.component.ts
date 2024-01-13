@@ -7,6 +7,7 @@ import { CustomInputTypes } from './types/custom-input.types';
 
 @UntilDestroy()
 @Component({
+  standalone: true,
   selector: 'dating-app-custom-input',
   templateUrl: './custom-input.component.html',
   styleUrl: './custom-input.component.scss',

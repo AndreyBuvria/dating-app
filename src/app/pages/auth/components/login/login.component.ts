@@ -2,6 +2,7 @@ import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
+  standalone: true,
   selector: 'dating-app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss', '../../auth.component.scss'],

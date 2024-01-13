@@ -1,12 +1,8 @@
-import {
-  ChangeDetectionStrategy,
-  Component,
-  ContentChild,
-  Input
-} from '@angular/core';
+import { ChangeDetectionStrategy, Component, ContentChild, Input } from '@angular/core';
 import { AuthCardEndDirective, AuthCardStartDirective } from '../../directives';
 
 @Component({
+  standalone: true,
   selector: 'dating-app-auth-card',
   templateUrl: './auth-card.component.html',
   styleUrl: './auth-card.component.scss',
