@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, Host, Input, Optional, SkipSelf, forwardRef } from '@angular/core';
-import { ControlContainer, FormControl, NG_VALUE_ACCESSOR } from '@angular/forms';
+import { ControlContainer, FormControl, NG_VALUE_ACCESSOR, ReactiveFormsModule } from '@angular/forms';
 import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
 import { ControlValueAccessorClass } from '@shared/classes';
 import { Subject, debounceTime } from 'rxjs';
@@ -10,7 +10,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 @UntilDestroy()
 @Component({
   standalone: true,
-  imports: [MatIconModule, MatFormFieldModule],
+  imports: [MatIconModule, MatFormFieldModule, ReactiveFormsModule],
   selector: 'dating-app-custom-input',
   templateUrl: './custom-input.component.html',
   styleUrl: './custom-input.component.scss',
