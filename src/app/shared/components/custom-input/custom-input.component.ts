@@ -1,5 +1,23 @@
-import { ChangeDetectionStrategy, Component, Host, Input, Optional, SkipSelf, forwardRef } from '@angular/core';
-import { ControlContainer, FormControl, NG_VALUE_ACCESSOR } from '@angular/forms';
+import { NgIf } from '@angular/common';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  Host,
+  Input,
+  Optional,
+  SkipSelf,
+  forwardRef
+} from '@angular/core';
+import {
+  ControlContainer,
+  FormControl,
+  NG_VALUE_ACCESSOR,
+  ReactiveFormsModule
+} from '@angular/forms';
+import { MatButtonModule } from '@angular/material/button';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatIconModule } from '@angular/material/icon';
+import { MatInputModule } from '@angular/material/input';
 import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
 import { ControlValueAccessorClass } from '@shared/classes';
 import { Subject, debounceTime } from 'rxjs';
@@ -7,6 +25,15 @@ import { CustomInputTypes } from './types/custom-input.types';
 
 @UntilDestroy()
 @Component({
+  standalone: true,
+  imports: [
+    MatIconModule,
+    MatInputModule,
+    MatFormFieldModule,
+    MatButtonModule,
+    ReactiveFormsModule,
+    NgIf
+  ],
   selector: 'dating-app-custom-input',
   templateUrl: './custom-input.component.html',
   styleUrl: './custom-input.component.scss',
