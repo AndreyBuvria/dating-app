@@ -17,7 +17,7 @@
       matSuffix
       mat-icon-button
       type="button"
-      (click)="isPasswordHidden = !isPasswordHidden"
+      (click)="onHidePassword($event)"
       [attr.aria-label]="'Hide password'"
       [attr.aria-pressed]="isPasswordHidden">
       <mat-icon>{{ isPasswordHidden ? 'visibility_off' : 'visibility' }}</mat-icon>

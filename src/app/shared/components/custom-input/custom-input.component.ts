@@ -101,6 +101,12 @@ export class CustomInputComponent extends ControlValueAccessorClass {
     }
   }
 
+  public onHidePassword(event: Event): void {
+    event.stopPropagation();
+    event.preventDefault();
+    this.isPasswordHidden = !this.isPasswordHidden;
+  }
+
   private subscribeToChanges(): void {
     this._valueChanges$
       .asObservable()
