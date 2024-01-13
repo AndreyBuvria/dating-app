@@ -1,8 +1,11 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { AuthCardComponent } from '@features/auth/components';
+import { CustomInputComponent } from '@shared/components';
 
 @Component({
   standalone: true,
+  imports: [AuthCardComponent, CustomInputComponent, ReactiveFormsModule],
   selector: 'dating-app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss', '../../auth.component.scss'],
