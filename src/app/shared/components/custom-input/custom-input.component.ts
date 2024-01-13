@@ -4,10 +4,13 @@ import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
 import { ControlValueAccessorClass } from '@shared/classes';
 import { Subject, debounceTime } from 'rxjs';
 import { CustomInputTypes } from './types/custom-input.types';
+import { MatIconModule } from '@angular/material/icon';
+import { MatFormFieldModule } from '@angular/material/form-field';
 
 @UntilDestroy()
 @Component({
   standalone: true,
+  imports: [MatIconModule, MatFormFieldModule],
   selector: 'dating-app-custom-input',
   templateUrl: './custom-input.component.html',
   styleUrl: './custom-input.component.scss',
