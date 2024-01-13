@@ -5,7 +5,7 @@
   "bracketSameLine": true,
   "bracketSpacing": true,
   "singleAttributePerLine": true,
-  "printWidth": 120,
+  "printWidth": 100,
   "arrowParens": "always",
   "trailingComma": "none",
   "htmlWhitespaceSensitivity": "ignore"
