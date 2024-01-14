@@ -9,14 +9,14 @@
       "options": {
         "cypressConfig": "e2e/cypress.config.ts",
         "testingType": "e2e",
-        "devServerTarget": "dating-app:serve:development"
+        "devServerTarget": "dat-app:serve:development"
       },
       "configurations": {
         "production": {
-          "devServerTarget": "dating-app:serve:production"
+          "devServerTarget": "dat-app:serve:production"
         },
         "ci": {
-          "devServerTarget": "dating-app:serve-static"
+          "devServerTarget": "dat-app:serve-static"
         }
       }
     },
@@ -26,5 +26,5 @@
     }
   },
   "tags": [],
-  "implicitDependencies": ["dating-app"]
+  "implicitDependencies": ["dat-app"]
 }

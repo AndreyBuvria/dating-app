@@ -4,11 +4,11 @@ import { RouterOutlet } from '@angular/router';
 @Component({
   standalone: true,
   imports: [RouterOutlet],
-  selector: 'dating-app-root',
+  selector: 'dat-app-root',
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AppComponent {
-  title = 'dating-app';
+  title = 'dat-app';
 }

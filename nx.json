@@ -66,10 +66,9 @@
     },
     "@nx/angular:component": {
       "style": "scss",
-      "changeDetection": "OnPush",
-      "standalone": false
+      "changeDetection": "OnPush"
     }
   },
-  "defaultProject": "dating-app",
+  "defaultProject": "dat-app",
   "nxCloudAccessToken": "NzA1NDNhZDktZWM0Yy00ZjM4LTk3ZDgtMzFiY2QwOGFiMTc5fHJlYWQtd3JpdGU="
 }

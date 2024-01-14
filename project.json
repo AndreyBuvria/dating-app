@@ -1,8 +1,8 @@
 {
-  "name": "dating-app",
+  "name": "dat-app",
   "$schema": "node_modules/nx/schemas/project-schema.json",
   "projectType": "application",
-  "prefix": "dating-app",
+  "prefix": "dat-app",
   "sourceRoot": "./src",
   "tags": [],
   "targets": {
@@ -10,7 +10,7 @@
       "executor": "@angular-devkit/build-angular:application",
       "outputs": ["{options.outputPath}"],
       "options": {
-        "outputPath": "dist/dating-app",
+        "outputPath": "dist/dat-app",
         "index": "./src/index.html",
         "browser": "./src/main.ts",
         "polyfills": ["zone.js"],
@@ -48,10 +48,10 @@
       "executor": "@angular-devkit/build-angular:dev-server",
       "configurations": {
         "production": {
-          "buildTarget": "dating-app:build:production"
+          "buildTarget": "dat-app:build:production"
         },
         "development": {
-          "buildTarget": "dating-app:build:development"
+          "buildTarget": "dat-app:build:development"
         }
       },
       "defaultConfiguration": "development"
@@ -59,7 +59,7 @@
     "extract-i18n": {
       "executor": "@angular-devkit/build-angular:extract-i18n",
       "options": {
-        "buildTarget": "dating-app:build"
+        "buildTarget": "dat-app:build"
       }
     },
     "lint": {
@@ -79,8 +79,8 @@
     "serve-static": {
       "executor": "@nx/web:file-server",
       "options": {
-        "buildTarget": "dating-app:build",
-        "staticFilePath": "dist/dating-app/browser"
+        "buildTarget": "dat-app:build",
+        "staticFilePath": "dist/dat-app/browser"
       }
     }
   }

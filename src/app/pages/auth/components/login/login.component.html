@@ -1,18 +1,18 @@
-<dating-app-auth-card [title]="'Log In'">
+<dat-app-auth-card [title]="'Log In'">
   <ng-template authCardStart>
     <form
       [formGroup]="form"
       (ngSubmit)="onSubmit()">
       <div class="form">
         <div class="form-group">
-          <dating-app-custom-input
+          <dat-app-custom-input
             [type]="'email'"
             [label]="'Fill form field'"
             formControlName="email" />
         </div>
 
         <div class="form-group">
-          <dating-app-custom-input
+          <dat-app-custom-input
             [type]="'password'"
             [label]="'Enter your password'"
             formControlName="password" />
@@ -46,4 +46,4 @@
       src="https://colorlib.com/etc/regform/colorlib-regform-7/images/signup-image.jpg"
       alt="" />
   </ng-template>
-</dating-app-auth-card>
+</dat-app-auth-card>

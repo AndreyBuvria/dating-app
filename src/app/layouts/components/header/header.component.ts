@@ -6,7 +6,7 @@ import { RouterOutlet } from '@angular/router';
 @Component({
   standalone: true,
   imports: [MatToolbarModule, MatIconModule, RouterOutlet],
-  selector: 'dating-app-header',
+  selector: 'dat-app-header',
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush
