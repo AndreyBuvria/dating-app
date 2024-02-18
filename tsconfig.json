@@ -16,9 +16,9 @@
     "paths": {
       "@core/*": ["src/app/core/*"],
       "@features/*": ["src/app/features/*"],
+      "@layouts/*": ["src/app/layouts/*"],
       "@pages/*": ["src/app/pages/*"],
-      "@shared/*": ["src/app/shared/*"],
-      "@layouts/*": ["src/app/layouts/*"]
+      "@shared/*": ["src/app/shared/*"]
     },
     "useDefineForClassFields": false,
     "esModuleInterop": true,

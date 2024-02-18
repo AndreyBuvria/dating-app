@@ -1,5 +1,6 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { AppIconsService } from '@core/services';
 
 @Component({
   standalone: true,
@@ -11,4 +12,8 @@ import { RouterOutlet } from '@angular/router';
 })
 export class AppComponent {
   title = 'dat-app';
+
+  constructor(readonly appIconsService: AppIconsService) {
+    appIconsService.loadAll();
+  }
 }
