@@ -1,5 +1,14 @@
-@import './theme.scss';
-/* You can add global styles to this file, and also import other style files */
+@import 'mixins/fonts';
+
+@include define-fonts(
+  'Plus Jakarta Sans',
+  normal,
+  'PlusJakartaSans',
+  './assets/fonts/PlusJakartaSans'
+);
+
+@import './theme/theme.scss';
+@import './theme/mat-components.scss';
 
 html,
 body {
@@ -7,7 +16,7 @@ body {
 }
 body {
   margin: 0;
-  font-family: 'Raleway', sans-serif;
+  font-family: 'Plus Jakarta Sans', sans-serif;
 }
 a {
   color: inherit;
@@ -26,6 +35,13 @@ p {
 *::before,
 *::after {
   box-sizing: border-box;
+}
+ul {
+  padding: 0;
+  margin: 0;
+  li {
+    list-style: none;
+  }
 }
 
 img {
@@ -56,4 +72,11 @@ img {
 .text-small {
   font-size: 1rem;
   font-weight: 400;
+}
+
+mat-icon {
+  &:not([svgIcon]) {
+    width: 100%;
+    height: fit-content;
+  }
 }

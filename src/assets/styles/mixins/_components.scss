@@ -1,0 +1,32 @@
+@import 'variables/colors';
+
+@mixin raised-nav-button() {
+  width: 100%;
+  border-radius: 16px;
+  justify-content: flex-start;
+  padding: 16px 24px;
+  height: fit-content;
+  gap: 15px;
+
+  mat-icon {
+    font-size: 1.6rem;
+    width: fit-content;
+    height: 100%;
+    color: $black;
+  }
+
+  span {
+    @include default-text();
+  }
+
+  &:hover {
+    background: $hovered-primary;
+  }
+
+  &:focus {
+    box-shadow:
+      0px 1px 1px -2px rgba(0, 0, 0, 0.2),
+      0px 1px 3px 0px rgba(0, 0, 0, 0.1),
+      0px 1px 5px 0px rgba(0, 0, 0, 0.12);
+  }
+}
