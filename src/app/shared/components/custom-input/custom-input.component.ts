@@ -34,7 +34,7 @@ import { CustomInputTypes } from './types/custom-input.types';
     ReactiveFormsModule,
     NgIf
   ],
-  selector: 'dating-app-custom-input',
+  selector: 'dat-app-custom-input',
   templateUrl: './custom-input.component.html',
   styleUrl: './custom-input.component.scss',
   providers: [

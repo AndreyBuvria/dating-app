@@ -15,7 +15,7 @@ import { CustomInputComponent } from '@shared/components';
     AuthCardEndDirective,
     MatButtonModule
   ],
-  selector: 'dating-app-login',
+  selector: 'dat-app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss', '../../auth.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush

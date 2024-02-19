@@ -1,0 +1,103 @@
+@use '@angular/material' as mat;
+
+@include mat.core();
+
+$dat-app-typography-config: mat.define-typography-config(
+  $font-family: '"Plus Jakarta Sans", sans-serif',
+  $headline-1: mat.define-typography-level(112px, 112px, 300, $letter-spacing: -0.05em),
+  $headline-2: mat.define-typography-level(56px, 56px, 400, $letter-spacing: -0.02em),
+  $headline-3: mat.define-typography-level(45px, 48px, 400, $letter-spacing: -0.005em),
+  $headline-4: mat.define-typography-level(34px, 40px, 400),
+  $headline-5: mat.define-typography-level(24px, 32px, 400),
+  $headline-6: mat.define-typography-level(20px, 32px, 400),
+  $subtitle-1: mat.define-typography-level(16px, 28px, 400),
+  $body-1: mat.define-typography-level(14px, 20px, 400),
+  $body-2: mat.define-typography-level(14px, 20px, 400),
+  $subtitle-2: mat.define-typography-level(16px, 28px, 400),
+  $caption: mat.define-typography-level(12px, 20px, 400),
+  $button: mat.define-typography-level(14px, 14px, 500)
+);
+
+$dat-app-primary-palette: (
+  50: #fffefe,
+  100: #fefdfe,
+  200: #fefbfd,
+  300: #fdf9fc,
+  400: #fcf8fb,
+  500: #fcf7fa,
+  600: #fcf6f9,
+  700: #fbf5f9,
+  800: #fbf3f8,
+  900: #faf1f6,
+  A100: #ffffff,
+  A200: #ffffff,
+  A400: #ffffff,
+  A700: #ffffff,
+  contrast: (
+    50: #000000,
+    100: #000000,
+    200: #000000,
+    300: #000000,
+    400: #000000,
+    500: #000000,
+    600: #000000,
+    700: #000000,
+    800: #000000,
+    900: #000000,
+    A100: #000000,
+    A200: #000000,
+    A400: #000000,
+    A700: #000000
+  )
+);
+
+$dat-app-accent-palette: (
+  50: #fce4ec,
+  100: #f7bacf,
+  200: #f28daf,
+  300: #ed5f8e,
+  400: #e93c76,
+  500: #e51a5e,
+  600: #e21756,
+  700: #de134c,
+  800: #da0f42,
+  900: #d30831,
+  A100: #fffcfd,
+  A200: #ffc9d2,
+  A400: #ff96a7,
+  A700: #ff7d91,
+  contrast: (
+    50: #000000,
+    100: #000000,
+    200: #000000,
+    300: #000000,
+    400: #ffffff,
+    500: #ffffff,
+    600: #ffffff,
+    700: #ffffff,
+    800: #ffffff,
+    900: #ffffff,
+    A100: #000000,
+    A200: #000000,
+    A400: #000000,
+    A700: #000000
+  )
+);
+
+$dat-app-primary: mat.define-palette($dat-app-primary-palette);
+$dat-app-accent: mat.define-palette($dat-app-accent-palette);
+
+$dat-app-warn: mat.define-palette(mat.$red-palette);
+
+$dat-app-theme: mat.define-light-theme(
+  (
+    color: (
+      primary: $dat-app-primary,
+      accent: $dat-app-accent,
+      warn: $dat-app-warn
+    ),
+    typography: $dat-app-typography-config
+  )
+);
+
+@include mat.all-component-themes($dat-app-theme);

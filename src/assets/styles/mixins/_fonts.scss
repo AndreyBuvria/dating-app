@@ -1,0 +1,26 @@
+$font-weights: (
+  'ExtraLight': 200,
+  'Light': 300,
+  'Regular': 400,
+  'Medium': 500,
+  'SemiBold': 600,
+  'Bold': 700,
+  'ExtraBold': 800
+);
+
+@mixin define-fonts($font-family, $font-style, $font-name, $file-folder: './') {
+  @each $font-weight-name, $font-weight in $font-weights {
+    $path: '#{$file-folder}/#{$font-name}-#{$font-weight-name}';
+
+    @font-face {
+      font-family: '#{$font-family}';
+      font-style: $font-style;
+      font-weight: $font-weight;
+      font-display: swap;
+      src:
+        url('#{$path}.ttf') format('truetype'),
+        url('#{$path}.woff') format('woff'),
+        url('#{$path}.woff2') format('woff2');
+    }
+  }
+}

@@ -1,0 +1,50 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav
+    class="sidenav"
+    mode="side"
+    opened>
+    <div class="sidenav-top">
+      <div class="sidenav-avatar">
+        <dat-app-avatar />
+      </div>
+
+      <nav class="sidenav-nav">
+        <ul class="sidenav-nav-tabs">
+          @for (tab of tabs; track $index) {
+            <li class="sidenav-nav-tabs-item">
+              <a [routerLink]="tab.route">
+                <button
+                  mat-raised-button
+                  color="primary"
+                  [class.active]="activeRouteTab === tab.route">
+                  <mat-icon>{{ tab.icon }}</mat-icon>
+
+                  <span>{{ tab.label }}</span>
+                </button>
+              </a>
+            </li>
+          }
+        </ul>
+      </nav>
+    </div>
+
+    <div class="sidenav-logout">
+      <button
+        mat-raised-button
+        color="primary">
+        <mat-icon>logout</mat-icon>
+
+        <span>Logout</span>
+      </button>
+    </div>
+  </mat-sidenav>
+  <mat-sidenav-content class="sidenav-content">
+    <div class="wrapper">
+      <div class="header-wrapper">
+        <ng-content select="[header]"></ng-content>
+      </div>
+
+      <ng-content></ng-content>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>
