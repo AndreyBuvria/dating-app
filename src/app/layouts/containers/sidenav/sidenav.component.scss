@@ -25,14 +25,13 @@
   &-top {
     display: flex;
     flex-direction: column;
-    gap: 24px;
+    gap: 48px;
   }
 
-  &-avatar {
-    padding: 20px;
-
-    background: $primary;
-    border-radius: 16px;
+  &-app-name {
+    font-size: 1.6rem;
+    text-align: center;
+    font-family: fantasy;
   }
 
   &-nav {
