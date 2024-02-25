@@ -2,11 +2,9 @@
   <mat-sidenav
     class="sidenav"
     mode="side"
-    opened>
+    [opened]="opened">
     <div class="sidenav-top">
-      <div class="sidenav-avatar">
-        <dat-app-avatar />
-      </div>
+      <h1 class="sidenav-app-name">DatingAppName</h1>
 
       <nav class="sidenav-nav">
         <ul class="sidenav-nav-tabs">
@@ -40,7 +38,9 @@
   </mat-sidenav>
   <mat-sidenav-content class="sidenav-content">
     <div class="wrapper">
-      <div class="header-wrapper">
+      <div
+        class="header-wrapper"
+        bottomBarNavigation>
         <ng-content select="[header]"></ng-content>
       </div>
 
